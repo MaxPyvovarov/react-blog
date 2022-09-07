@@ -16,13 +16,6 @@ export function fetchPosts() {
 
 			response.data.forEach(post => posts.push(post));
 
-			console.log(posts);
-
-			// Object.keys(response.data).forEach(post => {
-			// 	posts.push(post);
-			// 	console.log(post);
-			// });
-
 			dispatch(fetchPostsSuccess(posts));
 		} catch (error) {
 			dispatch(fetchPostsError(error));
