@@ -2,7 +2,8 @@ import {
 	FETCH_POSTS_START,
 	FETCH_POSTS_SUCCESS,
 	FETCH_POSTS_ERROR,
-	DELETE_POST,
+	DELETE_POST_SUCCESS,
+	DELETE_POST_ERROR,
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -30,10 +31,17 @@ export default function blogReducer(state = initialState, action) {
 				loading: false,
 				error: action.error,
 			};
-		case DELETE_POST:
+		case DELETE_POST_SUCCESS:
 			return {
 				...state,
 				posts: state.posts.filter(post => post.id !== action.id),
+				loading: false,
+			};
+		case DELETE_POST_ERROR:
+			return {
+				...state,
+				loading: false,
+				error: action.error,
 			};
 		default:
 			return state;
