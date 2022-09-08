@@ -5,7 +5,7 @@ import CreatePost from './pages/CreatePost';
 import styled from 'styled-components';
 
 const Background = styled.div`
-	background-color: #111;
+	background-color: #600d0d;
 	min-height: 100vh;
 `;
 
