@@ -13,7 +13,6 @@ function App() {
 	return (
 		<Background>
 			<BrowserRouter>
-				{/* <Navbar /> */}
 				<Routes>
 					<Route path='/' exact element={<Blog />} />
 					<Route path='/create' element={<CreatePost />} />

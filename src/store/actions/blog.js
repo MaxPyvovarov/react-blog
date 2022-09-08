@@ -3,6 +3,7 @@ import {
 	FETCH_POSTS_START,
 	FETCH_POSTS_SUCCESS,
 	FETCH_POSTS_ERROR,
+	DELETE_POST,
 } from './actionTypes';
 
 export function fetchPosts() {
@@ -40,5 +41,12 @@ export function fetchPostsError(error) {
 	return {
 		type: FETCH_POSTS_ERROR,
 		error,
+	};
+}
+
+export function deletePost(id) {
+	return {
+		type: DELETE_POST,
+		id,
 	};
 }

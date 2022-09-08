@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import {fetchPosts} from '../store/actions/blog';
+import {fetchPosts, deletePost} from '../store/actions/blog';
+import {NavLink} from 'react-router-dom';
 
 import styled from 'styled-components';
 import {Trash} from '@styled-icons/bootstrap/Trash';
@@ -23,7 +24,7 @@ const Header = styled.div`
 	button {
 		font-weight: 700;
 		color: #fff;
-		padding: 5px 10px;
+		padding: 15px 20px;
 		background: none;
 		border: 1px solid #fff;
 		border-radius: 10px;
@@ -71,6 +72,7 @@ const PostHeader = styled.div`
 	div {
 		display: flex;
 		gap: 10px;
+		align-items: flex-start;
 
 		button {
 			outline: none;
@@ -125,15 +127,19 @@ const Update = styled(Edit)`
 `;
 
 function renderPosts(props) {
+	function handleDeletePost(id) {
+		props.deletePost(id);
+	}
+
 	return props.posts.map(post => (
 		<Post key={post.id}>
 			<PostHeader>
 				<h3>{post.title}</h3>
 				<div>
-					<button>
+					<NavLink to='/edit:id'>
 						<Update />
-					</button>
-					<button>
+					</NavLink>
+					<button onClick={() => handleDeletePost(post.id)}>
 						<Delete />
 					</button>
 				</div>
@@ -156,7 +162,9 @@ const Blog = props => {
 		<Container>
 			<Header>
 				<h1>Posts</h1>
-				<button>Create new post</button>
+				<NavLink to='/create'>
+					<button>Create new post +</button>
+				</NavLink>
 			</Header>
 			<PostList>{renderPosts(props)}</PostList>
 		</Container>
@@ -173,6 +181,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	return {
 		fetchPosts: () => dispatch(fetchPosts()),
+		deletePost: id => dispatch(deletePost(id)),
 	};
 }
 
