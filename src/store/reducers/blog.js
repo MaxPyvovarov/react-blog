@@ -2,12 +2,14 @@ import {
 	FETCH_POSTS_START,
 	FETCH_POSTS_SUCCESS,
 	FETCH_POSTS_ERROR,
+	SELECT_POST,
 	DELETE_POST_SUCCESS,
 	DELETE_POST_ERROR,
 } from '../actions/actionTypes';
 
 const initialState = {
 	posts: [],
+	activePostId: null,
 	loading: false,
 	error: null,
 };
@@ -30,6 +32,11 @@ export default function blogReducer(state = initialState, action) {
 				...state,
 				loading: false,
 				error: action.error,
+			};
+		case SELECT_POST:
+			return {
+				...state,
+				activePostId: action.id,
 			};
 		case DELETE_POST_SUCCESS:
 			return {

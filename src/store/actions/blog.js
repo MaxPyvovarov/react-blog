@@ -3,6 +3,7 @@ import {
 	FETCH_POSTS_START,
 	FETCH_POSTS_SUCCESS,
 	FETCH_POSTS_ERROR,
+	SELECT_POST,
 	DELETE_POST_ERROR,
 	DELETE_POST_SUCCESS,
 } from './actionTypes';
@@ -45,14 +46,18 @@ export function fetchPostsError(error) {
 	};
 }
 
+export function selectPost(id) {
+	return {
+		type: SELECT_POST,
+		id,
+	};
+}
+
 export function deletePost(id) {
 	return async dispatch => {
 		dispatch(fetchPostsStart());
 		try {
-			const response = await axios.delete(
-				`https://bloggy-api.herokuapp.com/posts/${id}`
-			);
-			console.log(response);
+			await axios.delete(`https://bloggy-api.herokuapp.com/posts/${id}`);
 			dispatch(deletePostSuccess(id));
 		} catch (error) {
 			dispatch(deletePostError(error));

@@ -1,7 +1,7 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Blog from './pages/Blog';
-// import Navbar from './components/Navbar';
 import CreatePost from './pages/CreatePost';
+import PostPage from './pages/PostPage';
 import styled from 'styled-components';
 
 const Background = styled.div`
@@ -9,16 +9,24 @@ const Background = styled.div`
 	min-height: 100vh;
 `;
 
+const Container = styled.div`
+	padding: 15px 15px 0;
+	margin: 0 auto;
+	width: 80%;
+`;
+
 function App() {
 	return (
 		<Background>
-			<BrowserRouter>
-				<Routes>
-					<Route path='/' exact element={<Blog />} />
-					<Route path='/create' element={<CreatePost />} />
-					{/* <Route path='/post/:id' element={<PostPage />} /> */}
-				</Routes>
-			</BrowserRouter>
+			<Container>
+				<BrowserRouter>
+					<Routes>
+						<Route path='/' exact element={<Blog />} />
+						<Route path='/create' element={<CreatePost />} />
+						<Route path='/post/:id' element={<PostPage />} />
+					</Routes>
+				</BrowserRouter>
+			</Container>
 		</Background>
 	);
 }
