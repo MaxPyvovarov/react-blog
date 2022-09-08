@@ -45,7 +45,7 @@ const Blog = props => {
 					<button>Create new post +</button>
 				</NavLink>
 			</Header>
-			{props.loading ? <Loader /> : <PostList />}
+			{props.loading && props.posts.length !== 0 ? <Loader /> : <PostList />}
 		</>
 	);
 };

@@ -107,7 +107,10 @@ const Post = props => {
 				<PostHeader>
 					<h3>{post.title}</h3>
 					<div>
-						<NavLink to={`/edit/${post.id}`}>
+						<NavLink
+							to={`/edit/${post.id}`}
+							onClick={() => handleSelectPost(post.id)}
+						>
 							<Update />
 						</NavLink>
 						<button onClick={() => handleDeletePost(post.id)}>

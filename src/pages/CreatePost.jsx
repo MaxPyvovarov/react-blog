@@ -23,6 +23,8 @@ const TitleInputWrapper = styled.div`
 	}
 
 	input {
+		border-radius: 10px;
+		border: 1px solid #fff;
 		font-family: Arial, sans-serif;
 		outline: none;
 		font-size: 20px;
@@ -43,6 +45,8 @@ const BodyInputWrapper = styled.div`
 	}
 
 	textarea {
+		border-radius: 10px;
+		border: 1px solid #fff;
 		font-family: Arial, sans-serif;
 		outline: none;
 		font-size: 20px;
