@@ -1,13 +1,13 @@
 import React from 'react';
 import MainPageButton from '../components/MainPageButton/MainPageButton';
 
-const Post = () => {
+const EditPage = () => {
 	return (
 		<>
 			<MainPageButton />
-			<h1>Post page</h1>
+			<h1>Edit post</h1>
 		</>
 	);
 };
 
-export default Post;
+export default EditPage;

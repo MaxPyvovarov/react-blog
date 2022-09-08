@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import MainPageButton from '../components/MainPageButton/MainPageButton';
+import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 import styled from 'styled-components';
 
@@ -21,6 +23,7 @@ const TitleInputWrapper = styled.div`
 	}
 
 	input {
+		font-family: Arial, sans-serif;
 		outline: none;
 		font-size: 20px;
 		max-width: 500px;
@@ -40,6 +43,7 @@ const BodyInputWrapper = styled.div`
 	}
 
 	textarea {
+		font-family: Arial, sans-serif;
 		outline: none;
 		font-size: 20px;
 		width: 100%;
@@ -67,8 +71,18 @@ const SubmitButton = styled.button`
 `;
 
 const CreatePost = () => {
+	const [title, setTitle] = useState('');
+	const [body, setBody] = useState('');
+	const navigate = useNavigate();
+
 	function handleSubmit(e) {
 		e.preventDefault();
+
+		axios.post('https://bloggy-api.herokuapp.com/posts', {
+			title,
+			body,
+		});
+		setTimeout(() => navigate('/'), 1000);
 	}
 
 	return (
@@ -78,11 +92,21 @@ const CreatePost = () => {
 			<form onSubmit={handleSubmit}>
 				<TitleInputWrapper>
 					<label htmlFor='titleInput'>Title</label>
-					<input type='text' id='titleInput'></input>
+					<input
+						type='text'
+						id='titleInput'
+						value={title || ''}
+						onChange={e => setTitle(e.target.value)}
+					></input>
 				</TitleInputWrapper>
 				<BodyInputWrapper>
 					<label htmlFor='bodyInput'>Body</label>
-					<textarea type='text' id='bodyInput'></textarea>
+					<textarea
+						type='text'
+						id='bodyInput'
+						value={body || ''}
+						onChange={e => setBody(e.target.value)}
+					></textarea>
 				</BodyInputWrapper>
 				<div>
 					<SubmitButton type='submit'>Save</SubmitButton>
