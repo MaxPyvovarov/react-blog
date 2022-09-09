@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
-import MainPageButton from '../components/MainPageButton/MainPageButton';
+import MainPageButton from '../components/UI/MainPageButton/MainPageButton';
+import Loader from '../components/UI/Loader/Loader';
 import {connect} from 'react-redux';
 import {deletePost, selectPost} from '../store/actions/blog';
 import {fetchPost} from '../store/actions/post';
 import {NavLink, useNavigate} from 'react-router-dom';
-import Loader from '../components/Loader/Loader';
+import CommentsList from '../components/CommentsList/CommentsList';
 
 import {Trash} from '@styled-icons/bootstrap/Trash';
 import {Edit} from '@styled-icons/fluentui-system-filled/Edit';
@@ -72,6 +73,11 @@ const Update = styled(Edit)`
 	}
 `;
 
+const CommentsHeader = styled.h2`
+	color: #fff;
+	margin: 40px 0 10px;
+`;
+
 const PostPage = props => {
 	const post = props.post;
 	const navigate = useNavigate();
@@ -96,23 +102,27 @@ const PostPage = props => {
 			{props.loading ? (
 				<Loader />
 			) : (
-				<PostBlock>
-					<PostHeader>
-						<h3>{post.title}</h3>
-						<div>
-							<NavLink
-								to={`/edit/${post.id}`}
-								onClick={() => handleSelectPost(post.id)}
-							>
-								<Update />
-							</NavLink>
-							<button onClick={() => handleDeletePost(post.id)}>
-								<Delete />
-							</button>
-						</div>
-					</PostHeader>
-					<p>{post.body}</p>
-				</PostBlock>
+				<>
+					<PostBlock>
+						<PostHeader>
+							<h3>{post.title}</h3>
+							<div>
+								<NavLink
+									to={`/edit/${post.id}`}
+									onClick={() => handleSelectPost(post.id)}
+								>
+									<Update />
+								</NavLink>
+								<button onClick={() => handleDeletePost(post.id)}>
+									<Delete />
+								</button>
+							</div>
+						</PostHeader>
+						<p>{post.body}</p>
+					</PostBlock>
+					<CommentsHeader>Comments</CommentsHeader>
+					<CommentsList />
+				</>
 			)}
 		</>
 	);

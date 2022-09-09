@@ -21,6 +21,7 @@ export default function postReducer(state = initialState, action) {
 			return {
 				...state,
 				post: action.post,
+				comments: action.post.comments,
 				loading: false,
 			};
 		case FETCH_POST_ERROR:

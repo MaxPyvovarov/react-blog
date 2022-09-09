@@ -15,7 +15,6 @@ export function fetchPost(id) {
 			);
 
 			const post = response.data;
-			console.log('response', post);
 			dispatch(fetchPostSuccess(post));
 		} catch (error) {
 			dispatch(fetchPostError(error));

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {fetchPosts, selectPost, deletePost} from '../store/actions/blog';
 import {NavLink} from 'react-router-dom';
-import Loader from '../components/Loader/Loader';
+import Loader from '../components/UI/Loader/Loader';
 import PostList from '../components/PostList/PostList';
 
 import styled from 'styled-components';

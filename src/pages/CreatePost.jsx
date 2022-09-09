@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import MainPageButton from '../components/MainPageButton/MainPageButton';
+import MainPageButton from '../components/UI/MainPageButton/MainPageButton';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 

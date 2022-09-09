@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import MainPageButton from '../components/MainPageButton/MainPageButton';
 import axios from 'axios';
+import MainPageButton from '../components/UI/MainPageButton/MainPageButton';
 import {useNavigate} from 'react-router-dom';
 import {connect} from 'react-redux';
 
