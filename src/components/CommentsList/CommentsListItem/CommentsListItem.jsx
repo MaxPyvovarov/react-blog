@@ -17,7 +17,6 @@ const Comment = styled.div`
 `;
 
 const CommentsListItem = ({comment}) => {
-	console.log('item', comment);
 	return (
 		<Comment>
 			<p>{comment.body}</p>

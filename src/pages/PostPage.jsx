@@ -123,7 +123,7 @@ const PostPage = props => {
 						<WhiteP>{post.body}</WhiteP>
 					</PostBlock>
 					<CommentsHeader>Comments</CommentsHeader>
-					{props.loading && props.comments.length > 0 ? (
+					{props.comments.length > 0 ? (
 						<CommentsList />
 					) : (
 						<WhiteP>No comments yet</WhiteP>

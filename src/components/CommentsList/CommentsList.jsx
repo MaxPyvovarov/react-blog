@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import CommentsListItem from './CommentsListItem/CommentsListItem';
 
 const CommentsList = props => {
-	console.log('List', props);
 	return props.comments.map(comment => (
 		<CommentsListItem key={comment.id} comment={comment} />
 	));
