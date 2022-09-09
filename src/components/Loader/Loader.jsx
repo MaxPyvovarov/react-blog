@@ -15,7 +15,6 @@ const Loader = () => {
 				<div></div>
 				<div></div>
 			</div>
-			;
 		</div>
 	);
 };

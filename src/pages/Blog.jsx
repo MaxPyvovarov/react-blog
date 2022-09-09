@@ -40,7 +40,6 @@ const ErrorMessage = styled.p`
 `;
 
 const Blog = props => {
-	console.log(props);
 	useEffect(() => {
 		props.fetchPosts();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
