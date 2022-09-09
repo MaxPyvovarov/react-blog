@@ -20,10 +20,6 @@ const PostBlock = styled.div`
 	border: 1px solid #fff;
 	border-radius: 10px;
 	background-color: #290606;
-
-	p {
-		color: #fff;
-	}
 `;
 
 const PostHeader = styled.div`
@@ -51,6 +47,10 @@ const PostHeader = styled.div`
 			}
 		}
 	}
+`;
+
+const WhiteP = styled.p`
+	color: #fff;
 `;
 
 const Delete = styled(Trash)`
@@ -81,6 +81,7 @@ const CommentsHeader = styled.h2`
 const PostPage = props => {
 	const post = props.post;
 	const navigate = useNavigate();
+	console.log('post', props);
 
 	useEffect(() => {
 		props.fetchPost(props.activePostId);
@@ -93,6 +94,7 @@ const PostPage = props => {
 	}
 
 	function handleSelectPost(id) {
+		localStorage.setItem('activePostId', id);
 		props.selectPost(id);
 	}
 
@@ -118,10 +120,14 @@ const PostPage = props => {
 								</button>
 							</div>
 						</PostHeader>
-						<p>{post.body}</p>
+						<WhiteP>{post.body}</WhiteP>
 					</PostBlock>
 					<CommentsHeader>Comments</CommentsHeader>
-					<CommentsList />
+					{props.loading && props.comments.length > 0 ? (
+						<CommentsList />
+					) : (
+						<WhiteP>No comments yet</WhiteP>
+					)}
 				</>
 			)}
 		</>
@@ -132,6 +138,7 @@ function mapStateToProps(state) {
 	return {
 		post: state.post.post,
 		loading: state.post.loading,
+		comments: state.post.comments,
 		error: state.post.error,
 		activePostId: state.blog.activePostId,
 	};

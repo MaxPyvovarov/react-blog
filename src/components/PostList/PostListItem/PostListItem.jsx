@@ -98,6 +98,7 @@ const Post = props => {
 	}
 
 	function handleSelectPost(id) {
+		localStorage.setItem('activePostId', id);
 		props.selectPost(id);
 	}
 

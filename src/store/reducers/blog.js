@@ -9,7 +9,7 @@ import {
 
 const initialState = {
 	posts: [],
-	activePostId: null,
+	activePostId: localStorage.getItem('activePostId'),
 	loading: false,
 	error: null,
 };
