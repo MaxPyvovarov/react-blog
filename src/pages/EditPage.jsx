@@ -81,8 +81,6 @@ const EditPage = props => {
 	const [body, setBody] = useState(post.body);
 	const navigate = useNavigate();
 
-	console.log(props);
-
 	function handleSubmit(e) {
 		e.preventDefault();
 

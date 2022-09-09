@@ -31,7 +31,16 @@ const Header = styled.div`
 	}
 `;
 
+const ErrorMessage = styled.p`
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+	margin-top: 50px;
+	font-weight: 700;
+`;
+
 const Blog = props => {
+	console.log(props);
 	useEffect(() => {
 		props.fetchPosts();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -46,6 +55,7 @@ const Blog = props => {
 				</NavLink>
 			</Header>
 			{props.loading && props.posts.length !== 0 ? <Loader /> : <PostList />}
+			{props.error && <ErrorMessage>{props.error.message}</ErrorMessage>}
 		</>
 	);
 };
@@ -54,6 +64,7 @@ function mapStateToProps(state) {
 	return {
 		posts: state.blog.posts,
 		loading: state.blog.loading,
+		error: state.blog.error,
 	};
 }
 
