@@ -76,7 +76,7 @@ const Delete = styled(Trash)`
 	height: auto;
 	transition: all 0.3s ease;
 	:hover {
-		transform: scale(1.2);
+		scale: 1.2;
 	}
 `;
 
@@ -86,7 +86,7 @@ const Update = styled(Edit)`
 	height: auto;
 	transition: all 0.3s ease;
 	:hover {
-		transform: scale(1.2);
+		scale: 1.2;
 	}
 `;
 
