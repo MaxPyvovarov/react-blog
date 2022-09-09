@@ -13,12 +13,12 @@ const PostBlock = styled.div`
 	flex-direction: column;
 	padding: 25px;
 	margin: 10px 0;
-	border: 1px solid #fff;
+	border: 1px solid #050505;
 	border-radius: 10px;
-	background-color: #290606;
+	background-color: #f5f1e3;
 
 	p {
-		color: #fff;
+		color: #050505;
 	}
 `;
 
@@ -29,7 +29,7 @@ const PostHeader = styled.div`
 	opacity: 1;
 
 	h3 {
-		color: #fff;
+		color: #050505;
 		text-transform: uppercase;
 	}
 
@@ -56,10 +56,10 @@ const PostFooter = styled.div`
 
 	button {
 		font-weight: 700;
-		color: #fff;
+		color: #050505;
 		padding: 10px;
 		background: none;
-		border: 1px solid #fff;
+		border: 1px solid #050505;
 		border-radius: 10px;
 		cursor: pointer;
 		transition: all 0.3s ease;
@@ -71,7 +71,7 @@ const PostFooter = styled.div`
 `;
 
 const Delete = styled(Trash)`
-	color: #fff;
+	color: #dd1c1a;
 	width: 25px;
 	height: auto;
 	transition: all 0.3s ease;
@@ -81,7 +81,7 @@ const Delete = styled(Trash)`
 `;
 
 const Update = styled(Edit)`
-	color: #fff;
+	color: #43b929;
 	width: 25px;
 	height: auto;
 	transition: all 0.3s ease;

@@ -9,7 +9,7 @@ const Comment = styled.div`
 	margin-bottom: 20px;
 	border: 1px solid #fff;
 	border-radius: 10px;
-	background-color: #290606;
+	background-color: #dd1c1a;
 
 	p {
 		color: #fff;

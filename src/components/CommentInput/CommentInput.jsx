@@ -24,7 +24,7 @@ const CommentInput = ({postId, fetchPost}) => {
 			postId,
 			body: comment,
 		});
-		setTimeout(() => fetchPost(postId), 1000);
+		setTimeout(() => fetchPost(postId), 500);
 	}
 
 	return (

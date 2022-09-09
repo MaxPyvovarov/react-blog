@@ -6,6 +6,7 @@ import styled from 'styled-components';
 const Link = styled(NavLink)`
 	text-decoration: underline;
 	color: #fff;
+	font-weight: 700;
 `;
 
 const MainPageButton = () => {

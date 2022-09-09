@@ -7,8 +7,9 @@ import EditPage from './pages/EditPage';
 import styled from 'styled-components';
 
 const Background = styled.div`
-	background-color: #600d0d;
+	background-color: #1b9aaa;
 	min-height: 100vh;
+	padding: 10px 0;
 `;
 
 const Container = styled.div`

@@ -32,7 +32,7 @@ const Header = styled.div`
 `;
 
 const ErrorMessage = styled.p`
-	color: #fff;
+	color: #050505;
 	font-size: 20px;
 	text-align: center;
 	margin-top: 50px;
