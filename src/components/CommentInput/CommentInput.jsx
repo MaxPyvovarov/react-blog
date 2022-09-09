@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {fetchPost} from '../../store/actions/post';
 
 const Input = styled.input`
 	border-radius: 10px;
@@ -14,17 +15,16 @@ const Input = styled.input`
 	margin-bottom: 20px;
 `;
 
-const CommentInput = ({postId}) => {
+const CommentInput = ({postId, fetchPost}) => {
 	const [comment, setComment] = useState('');
-	const navigate = useNavigate();
 
-	async function handleSubmit(e) {
+	function handleSubmit(e) {
 		e.preventDefault();
-		await axios.post('https://bloggy-api.herokuapp.com/comments', {
+		axios.post('https://bloggy-api.herokuapp.com/comments', {
 			postId,
 			body: comment,
 		});
-		setTimeout(() => navigate(`/post/${postId}`), 1000);
+		setTimeout(() => fetchPost(postId), 1000);
 	}
 
 	return (
@@ -39,4 +39,10 @@ const CommentInput = ({postId}) => {
 	);
 };
 
-export default CommentInput;
+function mapDispatchToProps(dispatch) {
+	return {
+		fetchPost: id => dispatch(fetchPost(id)),
+	};
+}
+
+export default connect(null, mapDispatchToProps)(CommentInput);

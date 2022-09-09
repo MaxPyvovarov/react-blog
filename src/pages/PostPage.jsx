@@ -96,7 +96,6 @@ const PostPage = props => {
 	function handleSelectPost(id) {
 		props.selectPost(id);
 	}
-	console.log('post', post);
 
 	return (
 		<>
