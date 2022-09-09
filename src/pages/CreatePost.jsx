@@ -101,6 +101,7 @@ const CreatePost = () => {
 						id='titleInput'
 						value={title || ''}
 						onChange={e => setTitle(e.target.value)}
+						placeholder='Title ...'
 					></input>
 				</TitleInputWrapper>
 				<BodyInputWrapper>
@@ -110,6 +111,7 @@ const CreatePost = () => {
 						id='bodyInput'
 						value={body || ''}
 						onChange={e => setBody(e.target.value)}
+						placeholder='Your post ...'
 					></textarea>
 				</BodyInputWrapper>
 				<div>

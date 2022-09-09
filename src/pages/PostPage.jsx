@@ -6,6 +6,7 @@ import {deletePost, selectPost} from '../store/actions/blog';
 import {fetchPost} from '../store/actions/post';
 import {NavLink, useNavigate} from 'react-router-dom';
 import CommentsList from '../components/CommentsList/CommentsList';
+import CommentInput from '../components/CommentInput/CommentInput';
 
 import {Trash} from '@styled-icons/bootstrap/Trash';
 import {Edit} from '@styled-icons/fluentui-system-filled/Edit';
@@ -81,7 +82,6 @@ const CommentsHeader = styled.h2`
 const PostPage = props => {
 	const post = props.post;
 	const navigate = useNavigate();
-	console.log('post', props);
 
 	useEffect(() => {
 		props.fetchPost(props.activePostId);
@@ -94,9 +94,9 @@ const PostPage = props => {
 	}
 
 	function handleSelectPost(id) {
-		localStorage.setItem('activePostId', id);
 		props.selectPost(id);
 	}
+	console.log('post', post);
 
 	return (
 		<>
@@ -123,6 +123,7 @@ const PostPage = props => {
 						<WhiteP>{post.body}</WhiteP>
 					</PostBlock>
 					<CommentsHeader>Comments</CommentsHeader>
+					<CommentInput postId={post.id} />
 					{props.comments.length > 0 ? (
 						<CommentsList />
 					) : (
